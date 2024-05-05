@@ -1,0 +1,5 @@
+resources:
+  - type: storage.v1.bucket
+    name: sls-train-service-dev-1714853435915
+    properties:
+      location: us-central1

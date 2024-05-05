@@ -1,0 +1,19 @@
+resources:
+  - type: storage.v1.bucket
+    name: sls-train-service-dev-1714853435915
+    properties:
+      location: us-central1
+  - type: gcp-types/cloudfunctions-v1:projects.locations.functions
+    name: train-service-dev-first
+    properties:
+      parent: projects/trainapi-422319/locations/us-central1
+      availableMemoryMb: 256
+      runtime: nodejs20
+      timeout: 60s
+      entryPoint: http
+      function: train-service-dev-first
+      sourceArchiveUrl: >-
+        gs://sls-train-service-dev-1714853435915/serverless/train-service/dev/1714938497345-2024-05-05T19:48:17.345Z/train-service.zip
+      labels: {}
+      httpsTrigger:
+        url: path
