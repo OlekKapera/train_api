@@ -11,10 +11,19 @@ async function getLatestDataFromDB(stationId) {
 
 exports.http = async (request, response) => {
   let res = await getLatestDataFromDB(request.path);
+  const data = res.data;
+  if (data.Count == 0) {
+    response.status(404).send({ message: "Station not found" });
+    return;
+  }
 
-  console.log(res.data);
+  const distance = data.Items[0].device_data.M.distance.N;
+  if (distance >= 3) {
+    response.status(200).send({ hasObstacle: false });
+    return;
+  }
 
-  response.status(200).send(res.data);
+  response.status(200).send({ hasObstacle: true });
 };
 
 exports.event = (event, callback) => {

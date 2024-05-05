@@ -13,7 +13,7 @@ resources:
       entryPoint: http
       function: train-service-dev-first
       sourceArchiveUrl: >-
-        gs://sls-train-service-dev-1714853435915/serverless/train-service/dev/1714938497345-2024-05-05T19:48:17.345Z/train-service.zip
+        gs://sls-train-service-dev-1714853435915/serverless/train-service/dev/1714943319082-2024-05-05T21:08:39.082Z/train-service.zip
       labels: {}
       httpsTrigger:
         url: path
